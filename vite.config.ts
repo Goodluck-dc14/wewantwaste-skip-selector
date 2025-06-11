@@ -11,16 +11,22 @@ export default defineConfig({
     },
   },
   server: {
-    host: true,
+    host: '0.0.0.0',
     port: 5173,
     strictPort: false,
-    allowedHosts: ['all'],
+    allowedHosts: [
+      'localhost',
+      '.csb.app',
+      '.codesandbox.io',
+      '7zwslh-5173.csb.app',
+    ],
     hmr: {
+      port: 443,
       clientPort: 443,
     },
   },
   preview: {
-    host: true,
+    host: '0.0.0.0',
     port: 5173,
     strictPort: false,
   },
