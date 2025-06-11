@@ -14,20 +14,25 @@ export default defineConfig({
     host: '0.0.0.0',
     port: 5173,
     strictPort: false,
-    allowedHosts: [
-      'localhost',
-      '.csb.app',
-      '.codesandbox.io',
-      '7zwslh-5173.csb.app',
-    ],
+    allowedHosts: ['localhost', '.csb.app', '.codesandbox.io'],
     hmr: {
       port: 443,
       clientPort: 443,
+      overlay: false, // Disable error overlay that can cause loops
+    },
+    // Disable file watching that can cause infinite loops in CodeSandbox
+    watch: {
+      usePolling: false,
+      ignored: ['**/node_modules/**', '**/.git/**'],
     },
   },
   preview: {
     host: '0.0.0.0',
     port: 5173,
     strictPort: false,
+  },
+  // Optimize dependencies to prevent reload loops
+  optimizeDeps: {
+    include: ['react', 'react-dom', 'lucide-react', 'clsx'],
   },
 })
