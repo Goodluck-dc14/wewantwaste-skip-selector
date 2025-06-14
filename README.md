@@ -219,6 +219,7 @@ src/
 ## 🔧 API Integration
 
 ### Real Data Consumption
+This project uses the native `fetch` API instead of Axios to reduce dependencies and keep the bundle size minimal.
 
 The app fetches data from:
 \`\`\`
